@@ -34,7 +34,7 @@ export function AddTaskForm({ listId }) {
           id="new-task-title"
           value={title}
           onChange={(event) => { setTitle(event.target.value); setError(''); }}
-          placeholder="Что нужно сделать?"
+          placeholder="Title..."
           maxLength={120}
           aria-invalid={Boolean(error)}
         />
@@ -43,7 +43,7 @@ export function AddTaskForm({ listId }) {
           id="new-task-description"
           value={description}
           onChange={(event) => setDescription(event.target.value)}
-          placeholder="Добавьте описание (необязательно)"
+          placeholder="About..."
           maxLength={600}
         />
       </div>

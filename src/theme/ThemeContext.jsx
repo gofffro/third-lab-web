@@ -3,12 +3,8 @@ import { useLocalStorage } from '../hooks/useLocalStorage.js';
 
 const ThemeContext = createContext(null);
 
-function getSystemTheme() {
-  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
-
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useLocalStorage('todo-app:theme', getSystemTheme());
+  const [theme, setTheme] = useLocalStorage('todo-app:theme:v3', 'dark');
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;

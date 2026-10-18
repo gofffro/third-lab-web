@@ -81,7 +81,7 @@ export function ListPage() {
           {visibleTasks.map((task) => <TaskItem key={task.id} task={task} listId={list.id} />)}
         </ul>
       ) : listTasks.length === 0 ? (
-        <section className="empty-state panel"><span className="empty-symbol" aria-hidden="true">+</span><h2>Здесь появится первый шаг</h2><p>Запишите задачу выше, чтобы начать двигаться.</p></section>
+        <section className="empty-state panel"><span className="empty-symbol" aria-hidden="true">+</span><h2>No tasks</h2><p>Добавьте первую задачу выше.</p></section>
       ) : debouncedQuery ? (
         <section className="empty-state panel"><span className="empty-symbol" aria-hidden="true">⌕</span><h2>Ничего не найдено</h2><p>По запросу «{debouncedQuery}» нет совпадений.</p><button className="button button--quiet" type="button" onClick={clearSearch}>Сбросить поиск</button></section>
       ) : (

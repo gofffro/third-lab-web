@@ -7,12 +7,11 @@
     <title>Focus — менеджер задач</title>
     <script>
       try {
-        const key = 'todo-app:theme';
+        const key = 'todo-app:theme:v3';
         const saved = JSON.parse(localStorage.getItem(key));
-        const dark = matchMedia('(prefers-color-scheme: dark)').matches;
-        document.documentElement.dataset.theme = saved ?? (dark ? 'dark' : 'light');
+        document.documentElement.dataset.theme = saved ?? 'dark';
       } catch {
-        document.documentElement.dataset.theme = 'light';
+        document.documentElement.dataset.theme = 'dark';
       }
     </script>
   </head>

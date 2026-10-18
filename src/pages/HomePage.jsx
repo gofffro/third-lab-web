@@ -9,7 +9,7 @@ export function HomePage() {
   const openTasks = state.tasks.filter((task) => !task.done).length;
 
   return (
-    <main className="home-page" aria-labelledby="home-title">
+    <main className={`home-page${state.lists.length === 0 ? ' home-mockup' : ''}`} aria-labelledby="home-title">
       <div className="home-kicker"><span className="status-dot" aria-hidden="true" /> ЛИЧНОЕ ПРОСТРАНСТВО</div>
       <div className="home-hero">
         <div>
@@ -20,6 +20,7 @@ export function HomePage() {
       </div>
 
       {state.lists.length === 0 ? (
+        <>
         <section className="home-start panel" aria-labelledby="start-title">
           <div className="panel-index">01</div>
           <div>
@@ -29,6 +30,8 @@ export function HomePage() {
             <AddListForm onCreated={(id) => navigate(`/lists/${id}`)} />
           </div>
         </section>
+        <section className="empty-state home-empty" aria-live="polite"><span className="empty-symbol" aria-hidden="true" /><h2>No tasks</h2></section>
+        </>
       ) : (
         <section className="home-dashboard" aria-labelledby="dashboard-title">
           <div className="section-heading-row"><div><p className="eyebrow">ОБЗОР</p><h2 id="dashboard-title">Ваши списки</h2></div><span className="muted">{openTasks} активных из {totalTasks}</span></div>
