@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import { Layout } from './pages/Layout.jsx';
 import { HomePage } from './pages/HomePage.jsx';
 import { ListPage } from './pages/ListPage.jsx';
@@ -7,7 +7,7 @@ import { NotFoundPage } from './pages/NotFoundPage.jsx';
 
 export function AppRouter() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -17,6 +17,6 @@ export function AppRouter() {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
